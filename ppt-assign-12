@@ -1,0 +1,236 @@
+Q1.Write a simple Banking System program by using OOPs concept where you can get account Holder name balance etc?
+// BankAccount class
+class BankAccount {
+    private String accountHolderName;
+    private double balance;
+
+    // Constructor
+    public BankAccount(String accountHolderName, double balance) {
+        this.accountHolderName = accountHolderName;
+        this.balance = balance;
+    }
+
+    // Method to deposit money
+    public void deposit(double amount) {
+        balance += amount;
+        System.out.println("Deposit successful. New balance: " + balance);
+    }
+
+    // Method to withdraw money
+    public void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            System.out.println("Withdrawal successful. New balance: " + balance);
+        } else {
+            System.out.println("Insufficient balance. Withdrawal failed.");
+        }
+    }
+
+    // Method to get the account holder name
+    public String getAccountHolderName() {
+        return accountHolderName;
+    }
+
+    // Method to get the account balance
+    public double getBalance() {
+        return balance;
+    }
+}
+
+// Main class
+public class BankingSystem {
+    public static void main(String[] args) {
+        // Create a bank account object
+        BankAccount account = new BankAccount("John Doe", 1000.0);
+
+        // Access account information
+        System.out.println("Account Holder Name: " + account.getAccountHolderName());
+        System.out.println("Account Balance: " + account.getBalance());
+
+        // Perform transactions
+        account.deposit(500.0);
+        account.withdraw(200.0);
+    }
+}
+
+########################################################################################################################
+Write a Program where you inherit method from parent class and show method Overridden Concept?
+// Parent class
+class Parent {
+    // Method to be overridden
+    public void display() {
+        System.out.println("Parent class display method");
+    }
+}
+
+// Child class inheriting from Parent class
+class Child extends Parent {
+    // Overriding the display method of the Parent class
+    @Override
+    public void display() {
+        System.out.println("Child class display method");
+    }
+}
+
+// Main class
+public class InheritanceDemo {
+    public static void main(String[] args) {
+        // Create an object of the Child class
+        Child childObj = new Child();
+
+        // Call the display method of the Child class
+        childObj.display();
+
+        // Create an object of the Parent class
+        Parent parentObj = new Parent();
+
+        // Call the display method of the Parent class
+        parentObj.display();
+    }
+}
+
+########################################################################################################################
+Write a program to show run time polymorphism in java?
+// Parent class
+class Animal {
+    // Method to be overridden
+    public void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+// Child class inheriting from Animal class
+class Cat extends Animal {
+    // Overriding the sound method
+    @Override
+    public void sound() {
+        System.out.println("Cat meows");
+    }
+}
+
+// Another child class inheriting from Animal class
+class Dog extends Animal {
+    // Overriding the sound method
+    @Override
+    public void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+// Main class
+public class PolymorphismDemo {
+    public static void main(String[] args) {
+        // Create objects of different classes
+        Animal animal = new Animal();
+        Animal cat = new Cat();
+        Animal dog = new Dog();
+
+        // Call the sound method on different objects
+        animal.sound();
+        cat.sound();
+        dog.sound();
+    }
+}
+
+########################################################################################################################
+Q4.Write a program to show Compile time polymorphism in java?
+// Class with overloaded methods
+class MathUtils {
+    // Method to add two integers
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    // Method to add three integers
+    public int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Method to add two doubles
+    public double add(double a, double b) {
+        return a + b;
+    }
+}
+
+// Main class
+public class PolymorphismDemo {
+    public static void main(String[] args) {
+        MathUtils mathUtils = new MathUtils();
+
+        // Call the overloaded methods
+        int sum1 = mathUtils.add(5, 10);
+        int sum2 = mathUtils.add(2, 4, 6);
+        double sum3 = mathUtils.add(2.5, 3.7);
+
+        // Print the results
+        System.out.println("Sum of two integers: " + sum1);
+        System.out.println("Sum of three integers: " + sum2);
+        System.out.println("Sum of two doubles: " + sum3);
+    }
+}
+
+########################################################################################################################
+Achieve loose coupling in java by using OOPs  concept?
+Loose coupling is achieved in Java by using object-oriented programming (OOP) concepts such as encapsulation, inheritance, and abstraction. Here's how each concept contributes to achieving loose coupling:
+
+1. Encapsulation: Encapsulation is the practice of bundling data and methods together within a class. It promotes information hiding and provides a way to control access to the internal state of an object. By encapsulating data and exposing only necessary methods through interfaces, the implementation details are hidden, and the interaction with an object is done through well-defined interfaces. This reduces the dependency on the internal implementation and promotes loose coupling.
+
+2. Inheritance: Inheritance is a mechanism where a class inherits properties and behaviors from another class. It allows for the creation of a hierarchical relationship between classes, where subclasses inherit the characteristics of a superclass. Through inheritance, objects can be manipulated using their superclass types, providing flexibility and loose coupling. By programming to interfaces or abstract classes instead of concrete implementations, you can achieve loose coupling and easily swap out different implementations without affecting the client code.
+
+3. Abstraction: Abstraction is the process of hiding unnecessary details and exposing only essential features of an object or a system. It allows for the creation of abstract classes and interfaces, which define a contract for the behavior that implementing classes must adhere to. By programming to these abstractions, you can achieve loose coupling as the client code depends on the abstraction rather than the concrete implementations. This allows for easier replacement or extension of implementations without affecting the client code.
+
+By applying these OOP concepts effectively, you can achieve loose coupling in your Java programs. This promotes modularity, maintainability, and flexibility, as different components can be developed and modified independently without tightly coupling them together.
+########################################################################################################################
+What is the benefit of encapsulation in java?
+Encapsulation is one of the fundamental principles of object-oriented programming (OOP) and offers several benefits in Java:
+
+1. Data Hiding: Encapsulation allows you to hide the internal details and implementation of a class from external access. By using access modifiers like private, you can restrict direct access to the internal state of an object. This protects the data from being modified or accessed inappropriately, ensuring data integrity and security.
+
+2. Modularity and Maintainability: Encapsulation promotes modularity by encapsulating related data and behaviors within a single class. This makes it easier to understand, maintain, and modify the code. Changes made within the class do not affect other parts of the program, reducing the risk of introducing bugs and making code maintenance more manageable.
+
+3. Code Reusability: Encapsulation allows you to create reusable components. By exposing a well-defined interface through methods, you can hide the internal implementation details. This enables other parts of the program to interact with the object using the provided methods, without worrying about how the object internally handles the requests. This promotes code reuse, as the same object can be used in different contexts without modification.
+
+4. Flexibility and Adaptability: Encapsulation enables you to change the internal implementation of a class without affecting other parts of the program. As long as the external interface remains the same, the client code can interact with the object in the same way. This provides flexibility and adaptability, as you can improve or optimize the implementation of a class without impacting the code that uses it.
+
+5. Encapsulation and Inheritance: Encapsulation plays a crucial role in inheritance. By encapsulating the internal state and providing well-defined interfaces, you can control the access to the inherited members in subclasses. This allows for proper encapsulation within the inheritance hierarchy and ensures that the behavior of the superclass is not compromised by the subclasses.
+
+Overall, encapsulation in Java promotes code organization, data protection, reusability, maintainability, and flexibility. It helps build robust and modular programs by providing a clear separation between the internal implementation details and the external interactions with objects.
+########################################################################################################################
+.Is java a t 100% Object oriented Programming language? If no why ?
+No, Java is not considered a 100% Object-Oriented Programming (OOP) language. While Java is primarily based on the principles of OOP, it does include some non-object-oriented elements as well. Here are a few reasons why Java is not considered a pure OOP language:
+
+1. Primitive Data Types: Java includes primitive data types such as int, double, boolean, etc., which are not objects. These data types are not derived from a common class hierarchy and do not have associated methods or attributes like objects do.
+
+2. Static Methods: Java allows the declaration of static methods, which are associated with the class itself rather than with individual objects. Static methods can be called without creating an instance of the class, which deviates from the principle of object-oriented encapsulation.
+
+3. Top-Level Functions: Java allows the declaration of top-level functions outside of classes. These functions are not associated with any particular object or class and can be called directly. This violates the concept of encapsulating behavior within objects.
+
+4. Lack of Multiple Inheritance: Java does not support multiple inheritance, where a class can inherit from multiple parent classes. Instead, Java uses interfaces to achieve a form of multiple inheritance. This limitation restricts the flexibility and completeness of the inheritance mechanism in Java.
+
+Despite these deviations from pure OOP, Java remains heavily influenced by object-oriented principles and provides strong support for OOP concepts such as classes, objects, inheritance, polymorphism, and encapsulation. It is widely recognized as an object-oriented programming language due to its extensive use of objects and adherence to many OOP principles.
+########################################################################################################################
+Q8.What are the advantages of abstraction in java?
+The advantages of abstraction in Java are as follows:
+
+1. Simplified Complexity: Abstraction helps in simplifying complex systems by breaking them down into manageable modules or classes. It allows you to focus on the essential details and hide the unnecessary complexities, making the code easier to understand and maintain.
+
+2. Encapsulation of Implementation Details: Abstraction allows you to encapsulate the implementation details of a class or module, providing a clear separation between the internal workings and the external interface. This helps in achieving data hiding and protects the internal state of an object from external interference.
+
+3. Code Reusability: Abstraction promotes code reusability. By creating abstract classes or interfaces, you can define a common set of methods or behaviors that can be shared by multiple classes. This allows you to reuse the code and avoid duplicating implementation across different classes.
+
+4. Flexibility and Extensibility: Abstraction provides a flexible and extensible framework for software development. By defining abstract classes or interfaces, you can create a foundation that can be extended by implementing classes. This allows you to add new functionalities or variations to the system without modifying the existing code.
+
+5. Loose Coupling: Abstraction helps in achieving loose coupling between different modules or classes. By interacting with the abstract interfaces rather than concrete implementations, you can reduce the dependency between components. This enhances modularity, scalability, and maintainability of the codebase.
+
+6. High-level Design: Abstraction allows you to focus on the high-level design of the system, promoting a top-down approach to development. It helps in conceptualizing the system structure, identifying key components, and defining their relationships before delving into the implementation details.
+
+Overall, abstraction in Java provides a powerful mechanism to manage complexity, promote code reuse, enhance flexibility, and facilitate the development of modular and maintainable software systems. It plays a crucial role in achieving the goals of object-oriented programming and software engineering.
+########################################################################################################################
+Q9.What is an abstraction explained with an Example
+Abstraction is a fundamental concept in object-oriented programming that involves simplifying complex systems by breaking them down into more manageable and understandable components. It allows you to focus on the essential details while hiding the unnecessary complexities.
+
+Let's consider an example of a car. In a car, you have various components such as the engine, wheels, steering wheel, brakes, and so on. Each component has its own specific functionality and implementation details. However, when we think about a car from a high-level perspective, we don't need to know all the intricate details of how each component works. We are primarily interested in what the car can do and how we can interact with
+########################################################################################################################
+Q10.What is the final class in Java?
+In Java, the final keyword can be used to modify classes, methods, and variables. When applied to a class, the final keyword indicates that the class cannot be subclassed or inherited by other classes. In other words, a final class cannot be extended.
+
